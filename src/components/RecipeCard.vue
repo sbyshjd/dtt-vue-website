@@ -1,8 +1,12 @@
 <template>
-  <div class="recipe-card">
-    <img :src="strMealThumb" alt="food-sample">
-    <h3>{{strMeal}}</h3>
-    <router-link :to="`/detail/${idMeal}`">Read More</router-link>
+  <div class="recipe-card col-sm-6 col-md-4 pl-2 pr-2 mb-5">
+    <div class="card shadow">
+    <img class="card-img-top" :src="strMealThumb" alt="food-sample">
+    <div class="card-body">
+      <p class="card-title">{{strMeal}}</p>
+      <router-link :to="`/detail/${idMeal}`" class="btn btn-primary">Read More</router-link>
+    </div>
+    </div>
   </div>
 </template>
 

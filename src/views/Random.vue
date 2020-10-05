@@ -1,6 +1,5 @@
 <template>
-  <div class="random">
-    This is the random page of the website
+  <div class="random container">
     <recipe-content v-bind="recipe"></recipe-content>
     <button @click="retrieveRecipe">Another Random Recipe</button>
   </div>

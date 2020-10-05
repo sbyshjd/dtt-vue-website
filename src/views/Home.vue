@@ -1,12 +1,13 @@
 <template>
-  <div class="home">
-    This is the home page of the website
-    <div>
+  <div class="home container">
+    <div class="mt-3 mb-3 text-center">
       Sort By Name
       <button @click="e => sortByName('ascending')">Up</button>
       <button @click="e => sortByName('descending')">Down</button>
     </div>
-    <RecipeCard v-for="recipe in recipes" :key="recipe.idMeal" v-bind="recipe"></RecipeCard>
+    <div class="row">
+      <RecipeCard v-for="recipe in recipes" :key="recipe.idMeal" v-bind="recipe"></RecipeCard>
+    </div>
   </div>
 </template>
 

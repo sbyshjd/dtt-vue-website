@@ -1,8 +1,11 @@
 <template>
-  <div class="detail">
-    <h1>This is the detail page</h1>
+  <div class="detail container">
     <recipe-content v-bind="detailRecipe"></recipe-content>
-    <recipe-card v-for="recipe in similarRecipes" :key="recipe.id" v-bind="recipe"></recipe-card>
+    <hr/>
+    <h3>Similar Recipes</h3>
+    <div class="row">
+      <recipe-card v-for="recipe in similarRecipes" :key="recipe.id" v-bind="recipe"></recipe-card>
+    </div>
   </div>
 </template>
 
