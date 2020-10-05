@@ -16,9 +16,9 @@ const routes: Array<RouteConfig> = [
     component: () => import('../views/Random.vue'),
   },
   {
-    path: '/detail:id',
+    path: '/detail/:id',
     name: 'Detail Page',
-    component: () => import('../components/Detail.vue'),
+    component: () => import('../views/Detail.vue'),
   },
 ];
 

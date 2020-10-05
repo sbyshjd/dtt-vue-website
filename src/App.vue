@@ -3,8 +3,9 @@
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/random">Random</router-link>
+      <!-- <router-link to='/detail/:id'></router-link> -->
     </div>
-    <router-view />
+    <router-view :key="$route.fullPath" />
     <div id="footer">site map</div>
   </div>
 </template>
