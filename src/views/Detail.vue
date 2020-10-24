@@ -4,7 +4,7 @@
     <hr/>
     <h3>Similar Recipes</h3>
     <div class="row">
-      <recipe-card v-for="recipe in similarRecipes" :key="recipe.id" v-bind="recipe"></recipe-card>
+      <RecipeCard v-for="recipe in similarRecipes" :key="recipe.id" v-bind="recipe"></RecipeCard>
     </div>
   </div>
 </template>
@@ -18,8 +18,8 @@ import RecipeContent from '../components/RecipeContent.vue';
 @Component({
   name: 'Detail',
   components: {
-    'recipe-card': RecipeCard,
-    'recipe-content': RecipeContent,
+    RecipeCard,
+    RecipeContent,
   },
 })
 export default class Detail extends Vue {
@@ -41,12 +41,9 @@ export default class Detail extends Vue {
       })
       .then((res: any) => server.getSimilar(res.strArea, res.strCategory))
       .then((res: any) => {
-        console.log(id);
         const results = res.meals
           .filter((meal: any) => meal.idMeal.toString() !== id);
-        console.log(results);
         const meals = results.splice(Math.floor(Math.random() * (results.length - 3)), 3);
-        console.log(meals);
         this.similarRecipes = meals;
       });
   }
