@@ -42,7 +42,6 @@ export default class RecipeContent extends Vue {
     if (this.strInstructions) {
       arr = this.strInstructions.split('.');
       arr.pop();
-      console.log(arr);
     }
     return arr;
   }

@@ -51,11 +51,5 @@ export default class Detail extends Vue {
   mounted() {
     this.getDetailInformation(this.$route.params.id);
   }
-
-  beforeRouteUpdate(to: any, from: any, next: any) {
-    console.log('aaaaaaaaaaaa');
-    this.getDetailInformation(to.params.id);
-    next();
-  }
 }
 </script>

@@ -2,8 +2,12 @@
   <div class="home container">
     <div class="mt-3 mb-3 text-center">
       Sort By Name
-      <button @click="e => sortByName('ascending')">Up</button>
-      <button @click="e => sortByName('descending')">Down</button>
+      <button class="btn" @click="e => sortByName('descending')">
+        <b-icon-arrow-down></b-icon-arrow-down>
+      </button>
+      <button class="btn " @click="e => sortByName('ascending')">
+        <b-icon-arrow-up></b-icon-arrow-up>
+      </button>
     </div>
     <div class="row">
       <RecipeCard v-for="recipe in recipes" :key="recipe.idMeal" v-bind="recipe"></RecipeCard>
@@ -12,6 +16,7 @@
 </template>
 
 <script lang="ts">
+import { BIcon, BIconArrowUp, BIconArrowDown } from 'bootstrap-vue';
 import { Component, Vue } from 'vue-property-decorator';
 import RecipesDataService from '../services/recipesDataService';
 import RecipeCard from '../components/RecipeCard.vue';
@@ -19,6 +24,9 @@ import RecipeCard from '../components/RecipeCard.vue';
 @Component({
   name: 'Home',
   components: {
+    BIcon,
+    BIconArrowUp,
+    BIconArrowDown,
     RecipeCard,
   },
 })
@@ -30,7 +38,6 @@ export default class Home extends Vue {
     service.getAll().then((res: any) => {
       const recipesArray = res.meals.slice(0, 10);
       this.recipes = recipesArray;
-      console.log(this.recipes);
     });
   }
 

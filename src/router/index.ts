@@ -12,12 +12,12 @@ const routes: Array<RouteConfig> = [
   },
   {
     path: '/random',
-    name: 'Random Page',
+    name: 'Random',
     component: () => import('../views/Random.vue'),
   },
   {
     path: '/detail/:id',
-    name: 'Detail Page',
+    name: 'Detail',
     component: () => import('../views/Detail.vue'),
   },
 ];
