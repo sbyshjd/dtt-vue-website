@@ -1,7 +1,7 @@
 <template>
   <div class="random container">
+    <button class="btn btn-primary mt-3 mb-3" @click="retrieveRecipe">Another Random Recipe</button>
     <recipe-content v-bind="recipe"></recipe-content>
-    <button class="btn btn-primary" @click="retrieveRecipe">Another Random Recipe</button>
   </div>
 </template>
 
