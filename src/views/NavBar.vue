@@ -1,19 +1,23 @@
 <template>
   <div>
     <div class="nav">
-      <router-link
-      to="/" class="nav__link"
-      v-bind:class="{ active: isHome}">
-      Home
-      </router-link>
-      <router-link
-      to="/random" class="nav__link"
-      v-bind:class="{ active: isRandom}">
-      Random
-      </router-link>
+      <div class="nav__div">
+        <router-link
+        to="/" class="nav__link"
+        v-bind:class="{ active: isHome}">
+        Home
+        </router-link>
+      </div>
+      <div class="nav__div">
+        <router-link
+        to="/random" class="nav__link"
+        v-bind:class="{ active: isRandom}">
+        Random
+        </router-link>
+      </div>
       <div class="nav__categories">
         <button class="nav__categories__btn" v-bind:class="{ active: isCategories}">
-          Categories</button><BIconCaretDown></BIconCaretDown>
+          Categories <BIconCaretDownFill></BIconCaretDownFill></button>
         <ul class="nav__categories__ul">
           <li><router-link to="/categories/beef" class="nav__categories__ul__link">
           Beef</router-link></li>
@@ -31,14 +35,14 @@
 </template>
 
 <script lang="ts">
-import { BIcon, BIconCaretDown } from 'bootstrap-vue';
+import { BIcon, BIconCaretDownFill } from 'bootstrap-vue';
 import { Component, Vue, Watch } from 'vue-property-decorator';
 
 @Component({
   name: 'NavBar',
   components: {
     BIcon,
-    BIconCaretDown,
+    BIconCaretDownFill,
   },
 })
 export default class NavBar extends Vue {
@@ -76,19 +80,21 @@ export default class NavBar extends Vue {
   position: fixed;
   height: 75px;
   width: 100%;
-  background-color: grey;
+  background-color: rgb(240, 240, 240);
   z-index: 100;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  color: white;
+  &__div {
+    text-align: center;
+  }
   &__link {
     text-decoration: none;
-    color: white;
+    color: rgb(150, 150, 150);
   }
   &__link:hover {
     text-decoration: none;
-    color: white;
+    color: rgb(120, 120, 120);
   }
   &__categories {
     position: relative;
@@ -98,13 +104,17 @@ export default class NavBar extends Vue {
       padding: 0;
       border: none;
       background: none;
-      color: white;
+      color: rgb(150, 150, 150);
+    }
+    &__btn:hover {
+      color: rgb(120, 120, 120);
     }
     &__ul {
+      border-radius: 5px;
       width: 100%;
       display: none;
       position: absolute;
-      background-color: rgb(185, 185, 185);
+      background-color: rgb(220, 220, 220);
       padding-left: 0;
       list-style: none;
       &__link {
@@ -126,6 +136,12 @@ export default class NavBar extends Vue {
 }
 
 .active {
-  font-weight: bolder;
+  color: black;
+}
+
+@media screen and (max-width: 560px) {
+  .nav {
+    display: block;
+  }
 }
 </style>

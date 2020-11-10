@@ -1,7 +1,7 @@
 <template>
   <div class="recipe-content">
     <h3>{{ strMeal }}</h3>
-    <img :src="strMealThumb" alt="food-sample" />
+    <img :src="strMealThumb" alt="food-sample" class="recipe-content__image" />
     <h5>Area: <i>{{ strArea }}</i></h5>
     <h5>Categoty: <i>{{ strCategory }}</i></h5>
     <h5>Main Ingredients: <i>{{ strTags }}</i></h5>
@@ -47,3 +47,11 @@ export default class RecipeContent extends Vue {
   }
 }
 </script>
+<style lang="scss" scoped>
+  .recipe-content {
+    width:100%;
+    &__image {
+      width:100%
+    }
+}
+</style>
