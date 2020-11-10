@@ -11,6 +11,12 @@ export default class RecipesDataService {
       .then((res: any) => res.data);
   }
 
+  getByIngredient(ingredient: string) {
+    return this.service
+      .get(`filter.php?i=${ingredient}`)
+      .then((res: any) => res.data);
+  }
+
   getSimilar(area: string, category: string) {
     if (Math.random() >= 0.5) {
       return this.service

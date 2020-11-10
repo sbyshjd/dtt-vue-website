@@ -18,7 +18,7 @@ const routes: Array<RouteConfig> = [
   {
     path: '/categories/:ingredient',
     name: 'Categories',
-    component: () => import('../views/Home.vue'),
+    component: () => import('../views/Categories.vue'),
   },
   {
     path: '/detail/:id',

@@ -30,11 +30,9 @@ export default class Detail extends Vue {
   private id: string = this.$route.params.id;
 
   getDetailInformation(id: string) {
-    console.log(id);
     const server = new RecipesDataService();
     server.getInfoById(id)
       .then((res: any) => {
-        console.log(res);
         const meal = res.meals[0];
         this.detailRecipe = meal;
         return meal;
