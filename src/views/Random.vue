@@ -1,6 +1,6 @@
 <template>
-  <div class="random container">
-    <button class="btn btn-primary mt-3 mb-3" @click="retrieveRecipe">Another Random Recipe</button>
+  <div class="random">
+    <button @click="retrieveRecipe">Another Random Recipe</button>
     <recipe-content v-bind="recipe"></recipe-content>
   </div>
 </template>
@@ -32,3 +32,22 @@ export default class Random extends Vue {
   }
 }
 </script>
+<style lang="scss">
+  .random {
+    padding-left: 20px;
+    padding-right: 20px;
+    & button {
+      color: white;
+      background-color: #4d4dff;
+      border: none;
+      padding: 10px 20px;
+      margin-top: 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      outline: none;
+    }
+    & button:hover {
+      background-color: #3655b3;
+    }
+  }
+</style>

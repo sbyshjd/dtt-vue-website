@@ -3,8 +3,9 @@
     <div class="nav" ref="navbar">
       <resize-observer @notify="handleResize" />
       <div class="nav__head">
-        <div class="nav__logo">D/R</div>
-        <button class="nav__btn" @click="isShown=!isShown">#</button>
+        <div class="nav__logo"><router-link
+          to="/">D/R</router-link></div>
+        <button class="nav__btn" @click="isShown=!isShown"><BIconJustify></BIconJustify></button>
       </div>
       <div class="nav__body" v-bind:class="{show: isShown}">
         <div class="nav__div">
@@ -42,7 +43,7 @@
 </template>
 
 <script lang="ts">
-import { BIcon, BIconCaretDownFill } from 'bootstrap-vue';
+import { BIcon, BIconCaretDownFill, BIconJustify } from 'bootstrap-vue';
 import { Component, Vue, Watch } from 'vue-property-decorator';
 import 'vue-resize/dist/vue-resize.css';
 import { ResizeObserver } from 'vue-resize';
@@ -51,6 +52,7 @@ import { ResizeObserver } from 'vue-resize';
   name: 'NavBar',
   components: {
     BIcon,
+    BIconJustify,
     BIconCaretDownFill,
     ResizeObserver,
   },
@@ -69,9 +71,7 @@ export default class NavBar extends Vue {
   private navbarHeight = 0;
 
   public handleResize({ width, height }: any): void {
-    console.log('resized', width, height);
     this.navbarHeight = height;
-    console.log(this.navbarHeight);
   }
 
   @Watch('$route', { immediate: true, deep: true })
@@ -96,6 +96,9 @@ export default class NavBar extends Vue {
 }
 </script>
 <style lang="scss">
+.nav * {
+  font-weight: 600;
+}
 .nav {
   position: fixed;
   padding-top: 20px;
@@ -108,6 +111,17 @@ export default class NavBar extends Vue {
     color: rgb(70, 70, 70);
     font-weight: bolder;
   }
+  &__logo a {
+    color: rgb(70, 70, 70);
+    text-decoration: none;
+  }
+  &__btn {
+    border: none;
+    font-size: 24px;
+    color: rgb(70, 70, 70);
+    cursor: pointer;
+    outline:none;
+  }
   &__body {
     display: flex;
     flex-grow: 4;
@@ -115,9 +129,11 @@ export default class NavBar extends Vue {
     align-items: center;
   }
   &__div {
+    margin: 10px 0px;
     text-align: center;
   }
   &__link {
+    font-size: 16px;
     text-decoration: none;
     color: rgb(150, 150, 150);
   }
@@ -130,6 +146,7 @@ export default class NavBar extends Vue {
     cursor: pointer;
     text-align: center;
     &__btn {
+      font-size: 16px;
       padding: 0;
       border: none;
       background: none;
@@ -144,15 +161,19 @@ export default class NavBar extends Vue {
       display: none;
       position: absolute;
       background-color: rgb(220, 220, 220);
-      padding-left: 0;
+      padding: 10px 0px;
       list-style: none;
       &__link {
+        text-decoration: none;
         color: white;
       }
       &__link:hover {
         text-decoration: none;
         color: rgb(0, 0, 0);
       }
+    }
+    &__ul li {
+      padding: 5px;
     }
   }
   &__categories:hover ul {

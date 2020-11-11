@@ -1,15 +1,15 @@
 <template>
-  <div class="home container">
-    <div class="mt-3 mb-3 text-center">
+  <div class="home">
+    <div class="home__header">
       Sort By Name
-      <button class="btn" @click="e => sortByName('descending')">
+      <button @click="e => sortByName('descending')">
         <b-icon-arrow-down></b-icon-arrow-down>
       </button>
-      <button class="btn " @click="e => sortByName('ascending')">
+      <button @click="e => sortByName('ascending')">
         <b-icon-arrow-up></b-icon-arrow-up>
       </button>
     </div>
-    <div class="row">
+    <div class="wapper">
       <RecipeCard v-for="recipe in recipes" :key="recipe.idMeal" v-bind="recipe"></RecipeCard>
     </div>
   </div>
@@ -63,3 +63,38 @@ export default class Home extends Vue {
   }
 }
 </script>
+<style lang="scss">
+  .home {
+    padding-left: 20px;
+    padding-right: 20px;
+    &__header {
+      margin: 20px;
+      text-align: center;
+    }
+    &__header button {
+      margin: 0px 5px;
+      padding: 0px 5px;
+    }
+  }
+  .wapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 40px;
+  }
+
+  @media screen and (max-width: 560px) {
+    .wapper {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-gap: 40px;
+    }
+  }
+
+   @media screen and (max-width: 1024px) and (min-width: 561px) {
+    .wapper {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 20px;
+    }
+  }
+</style>

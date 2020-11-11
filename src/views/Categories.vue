@@ -1,9 +1,9 @@
 <template>
-  <div class="categories container">
-    <div class="mt-3 mb-3 text-center">
-      These are favorite recipes of <strong>{{ingredient}}</strong>
+  <div class="categories">
+    <div class="categories__header">
+      These are popular recipes of <strong>{{ingredient}}</strong>
     </div>
-    <div class="row">
+    <div class="wapper">
       <RecipeCard v-for="recipe in recipes" :key="recipe.idMeal" v-bind="recipe"></RecipeCard>
     </div>
   </div>
@@ -38,3 +38,13 @@ export default class Home extends Vue {
   }
 }
 </script>
+<style lang="scss">
+  .categories {
+    padding-left: 20px;
+    padding-right: 20px;
+    &__header {
+      margin: 20px;
+      text-align: center;
+    }
+  }
+</style>

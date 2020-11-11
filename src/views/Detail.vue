@@ -1,9 +1,9 @@
 <template>
-  <div class="detail container">
+  <div class="detail">
     <recipe-content v-bind="detailRecipe"></recipe-content>
     <hr/>
     <h3>Similar Recipes</h3>
-    <div class="row">
+    <div class="wapper">
       <RecipeCard v-for="recipe in similarRecipes" :key="recipe.id" v-bind="recipe"></RecipeCard>
     </div>
   </div>
@@ -51,3 +51,17 @@ export default class Detail extends Vue {
   }
 }
 </script>
+<style lang="scss">
+  .detail {
+    padding-left: 20px;
+    padding-right: 20px;
+    & hr {
+      border: none;
+      border-top: 1px solid rgb(156, 156, 156);
+      margin: 20px 0px;
+    }
+    & h3 {
+      margin-bottom: 10px;
+    }
+  }
+</style>
