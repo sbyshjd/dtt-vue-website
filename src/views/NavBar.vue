@@ -70,6 +70,8 @@ export default class NavBar extends Vue {
 
   private navbarHeight = 0;
 
+  // listening the height of the NavBar and apply it to the navbar-copy div;
+  // use the library vue-resize;
   public handleResize({ width, height }: any): void {
     this.navbarHeight = height;
   }

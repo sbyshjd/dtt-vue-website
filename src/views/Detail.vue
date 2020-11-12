@@ -3,7 +3,7 @@
     <recipe-content v-bind="detailRecipe"></recipe-content>
     <hr/>
     <h3>Similar Recipes</h3>
-    <div class="wapper">
+    <div class="wrapper">
       <RecipeCard v-for="recipe in similarRecipes" :key="recipe.id" v-bind="recipe"></RecipeCard>
     </div>
   </div>
@@ -38,9 +38,12 @@ export default class Detail extends Vue {
         return meal;
       })
       .then((res: any) => server.getSimilar(res.strArea, res.strCategory))
+      // to filter out the same recipe from the similar recipes we get from the API
       .then((res: any) => {
         const results = res.meals
           .filter((meal: any) => meal.idMeal.toString() !== id);
+        // from a random position of the array and get the 3 items after it.
+        // and apply the result to the similarRecipes
         const meals = results.splice(Math.floor(Math.random() * (results.length - 3)), 3);
         this.similarRecipes = meals;
       });

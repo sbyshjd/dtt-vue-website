@@ -3,7 +3,7 @@
     <div class="categories__header">
       These are popular recipes of <strong>{{ingredient}}</strong>
     </div>
-    <div class="wapper">
+    <div class="wrapper">
       <RecipeCard v-for="recipe in recipes" :key="recipe.idMeal" v-bind="recipe"></RecipeCard>
     </div>
   </div>
@@ -45,6 +45,6 @@ export default class Home extends Vue {
     &__header {
       margin: 20px;
       text-align: center;
-    }
   }
+}
 </style>

@@ -6,3 +6,26 @@
     font-family: 'Dosis', sans-serif;
 }
 
+// control the layout by the CSS grid and make the layout responsive according to the screen width
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 40px;
+}
+
+@media screen and (max-width: 560px) {
+    .wrapper {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-gap: 40px;
+    }
+}
+
+@media screen and (max-width: 1024px) and (min-width: 561px) {
+    .wrapper {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 20px;
+    }
+}
+

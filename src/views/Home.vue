@@ -9,7 +9,7 @@
         <b-icon-arrow-up></b-icon-arrow-up>
       </button>
     </div>
-    <div class="wapper">
+    <div class="wrapper">
       <RecipeCard v-for="recipe in recipes" :key="recipe.idMeal" v-bind="recipe"></RecipeCard>
     </div>
   </div>
@@ -74,27 +74,6 @@ export default class Home extends Vue {
     &__header button {
       margin: 0px 5px;
       padding: 0px 5px;
-    }
-  }
-  .wapper {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 40px;
-  }
-
-  @media screen and (max-width: 560px) {
-    .wapper {
-      display: grid;
-      grid-template-columns: 1fr;
-      grid-gap: 40px;
-    }
-  }
-
-   @media screen and (max-width: 1024px) and (min-width: 561px) {
-    .wapper {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      grid-gap: 20px;
     }
   }
 </style>
