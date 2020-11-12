@@ -25,7 +25,7 @@ export default class Home extends Vue {
 
   private ingredient: string = this.$route.params.ingredient;
 
-  retrieveRecipes() {
+  public retrieveRecipes() {
     const service: RecipesDataService = new RecipesDataService();
     service.getByIngredient(this.ingredient).then((res: any) => {
       const recipesArray = res.meals.slice(0, 10);

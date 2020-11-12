@@ -33,7 +33,7 @@ import RecipeCard from '../components/RecipeCard.vue';
 export default class Home extends Vue {
   private recipes: any[] = [];
 
-  retrieveRecipes() {
+  public retrieveRecipes() {
     const service: RecipesDataService = new RecipesDataService();
     service.getAll().then((res: any) => {
       const recipesArray = res.meals.slice(0, 10);
@@ -41,7 +41,7 @@ export default class Home extends Vue {
     });
   }
 
-  sortByName(type: string) {
+  public sortByName(type: string) {
     const sortedRecipes: any[] = [...this.recipes].sort((recipeA: any, recipeB: any): number => {
       const nameA: string = recipeA.strMeal.toLowerCase();
       const nameB: string = recipeB.strMeal.toLowerCase();

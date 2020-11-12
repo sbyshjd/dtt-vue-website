@@ -19,7 +19,7 @@ import RecipeContent from '../components/RecipeContent.vue';
 export default class Random extends Vue {
   private recipe = {};
 
-  retrieveRecipe() {
+  public retrieveRecipe() {
     const service = new RecipesDataService();
     service.getRandom().then((res: any) => {
       const randomRecipe = res.meals[0];
