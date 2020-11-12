@@ -21,8 +21,8 @@ export default class RecipesDataService {
   *the API could get the recipes by area or by category.
   *So we make the getSimilar function by using this two API queries.
   *The recipes we get from the API have the same area or the same category as the one we click.
-  *To make the getSimilar function more random, each time we call this function,
-  *we randomly choose one of these two API queries.
+  *To make the getSimilar function more random,
+  *we randomly choose one of these two API queries when we call this function.
   */
   getSimilar(area: string, category: string) {
     if (Math.random() >= 0.5) {

@@ -42,7 +42,8 @@ export default class Detail extends Vue {
       .then((res: any) => {
         const results = res.meals
           .filter((meal: any) => meal.idMeal.toString() !== id);
-        // from a random position of the array and get the 3 items after it.
+        // we need 3 similar recipes and the results we get maybe larger than 3
+        // so we pick a random position of the array and get the 3 items after it.
         // and apply the result to the similarRecipes
         const meals = results.splice(Math.floor(Math.random() * (results.length - 3)), 3);
         this.similarRecipes = meals;
