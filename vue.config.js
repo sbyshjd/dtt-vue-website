@@ -1,6 +1,6 @@
 const SiteMapPlugin = require('sitemap-webpack-plugin').default;
 
-const paths = ['/', '/random', '/detail/:id'];
+const paths = ['/', '/random', '/detail/:id', '/categories/:ingredient'];
 
 module.exports = {
   configureWebpack: {

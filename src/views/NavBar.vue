@@ -10,21 +10,20 @@
       <div class="nav__body" v-bind:class="{show: isShown}">
         <div class="nav__div">
           <router-link
-          to="/" class="nav__link"
-          v-bind:class="{ active: isHome}">
+          to="/home" class="nav__link">
           Home
           </router-link>
         </div>
         <div class="nav__div">
           <router-link
-          to="/random" class="nav__link"
-          v-bind:class="{ active: isRandom}">
+          to="/random" class="nav__link">
           Random
           </router-link>
         </div>
         <div class="nav__categories">
-          <button class="nav__categories__btn" v-bind:class="{ active: isCategories}">
-            Categories <BIconCaretDownFill></BIconCaretDownFill></button>
+          <router-link to="/categories" class="nav__categories__btn"
+          :disabled="true">
+            Categories <BIconCaretDownFill></BIconCaretDownFill></router-link>
           <ul class="nav__categories__ul">
             <li><router-link to="/categories/beef" class="nav__categories__ul__link">
             Beef</router-link></li>
@@ -58,14 +57,6 @@ import { ResizeObserver } from 'vue-resize';
   },
 })
 export default class NavBar extends Vue {
-  private path = this.$route.name;
-
-  private isHome = false;
-
-  private isRandom = false;
-
-  private isCategories = false;
-
   private isShown = false;
 
   private navbarHeight = 0;
@@ -75,27 +66,8 @@ export default class NavBar extends Vue {
   public handleResize({ width, height }: any): void {
     this.navbarHeight = height;
   }
-
-  @Watch('$route', { immediate: true, deep: true })
-  onUrlChange(newVal: any) {
-    this.path = newVal.name;
-    if (this.path === 'Home') {
-      this.isHome = true;
-      this.isRandom = false;
-      this.isCategories = false;
-    }
-    if (this.path === 'Random') {
-      this.isRandom = true;
-      this.isHome = false;
-      this.isCategories = false;
-    }
-    if (this.path === 'Categories') {
-      this.isRandom = false;
-      this.isHome = false;
-      this.isCategories = true;
-    }
-  }
 }
+
 </script>
 <style lang="scss">
 .nav * {
@@ -187,7 +159,7 @@ export default class NavBar extends Vue {
   height: 75px;
 }
 
-.active {
+.router-link-active {
   color: black;
 }
 

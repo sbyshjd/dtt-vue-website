@@ -7,6 +7,10 @@ Vue.use(VueRouter);
 const routes: Array<RouteConfig> = [
   {
     path: '/',
+    redirect: '/home',
+  },
+  {
+    path: '/home',
     name: 'Home',
     component: Home,
   },
@@ -14,6 +18,10 @@ const routes: Array<RouteConfig> = [
     path: '/random',
     name: 'Random',
     component: () => import('../views/Random.vue'),
+  },
+  {
+    path: '/categories',
+    redirect: '/categories/beef',
   },
   {
     path: '/categories/:ingredient',
