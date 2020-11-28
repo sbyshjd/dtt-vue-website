@@ -27,7 +27,7 @@ export default class Random extends Vue {
     });
   }
 
-  mounted() {
+  created() {
     this.retrieveRecipe();
   }
 }

@@ -33,7 +33,7 @@ export default class Home extends Vue {
     });
   }
 
-  mounted() {
+  created() {
     this.retrieveRecipes();
   }
 }

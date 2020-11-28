@@ -1,10 +1,11 @@
 import Vue from 'vue';
 import VueRouter, { RouteConfig } from 'vue-router';
-import Home from '../views/Home.vue';
+import { lazy } from 'vue-async-manager';
 
 Vue.use(VueRouter);
 
 const routes: Array<RouteConfig> = [
+
   {
     path: '/',
     redirect: '/home',
@@ -12,12 +13,12 @@ const routes: Array<RouteConfig> = [
   {
     path: '/home',
     name: 'Home',
-    component: Home,
+    component: lazy(() => import('../views/Home.vue')),
   },
   {
     path: '/random',
     name: 'Random',
-    component: () => import('../views/Random.vue'),
+    component: lazy(() => import('../views/Random.vue')),
   },
   {
     path: '/categories',
@@ -26,12 +27,12 @@ const routes: Array<RouteConfig> = [
   {
     path: '/categories/:ingredient',
     name: 'Categories',
-    component: () => import('../views/Categories.vue'),
+    component: lazy(() => import('../views/Categories.vue')),
   },
   {
     path: '/detail/:id',
     name: 'Detail',
-    component: () => import('../views/Detail.vue'),
+    component: lazy(() => import('../views/Detail.vue')),
   },
 ];
 
