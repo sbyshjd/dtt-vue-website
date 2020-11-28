@@ -10,9 +10,7 @@
       </button>
     </div>
     <transition-group name="flip-list" tag="div" class="wrapper">
-    <!-- <div class="wrapper"> -->
       <RecipeCard v-for="recipe in recipes" :key="recipe.idMeal" v-bind="recipe"></RecipeCard>
-    <!-- </div> -->
     </transition-group>
   </div>
 </template>
@@ -80,5 +78,5 @@ export default class Home extends Vue {
   }
   .flip-list-move {
   transition: transform 1s;
-}
+  }
 </style>

@@ -1,12 +1,9 @@
 <template>
   <div id="app">
     <NavBar/>
-      <Suspense>
-        <p class="fallback" slot="fallback">loading</p>
-    <!-- <transition mode="out-in"> -->
-        <router-view :key="$route.fullPath" />
-      <!-- </transition> -->
-      </Suspense>
+    <transition mode="out-in">
+      <router-view :key="$route.fullPath" />
+    </transition>
     <Footer/>
   </div>
 </template>
@@ -33,12 +30,5 @@ export default class App extends Vue {}
 }
 .v-enter-active,.v-leave-active {
   transition: all 0.2s ease;
-}
-.fallback {
-  width: 100%;
-  height: 110vh;
-  background: rgba(0, 0, 0, 0.5);
-  font-size: 50px;
-  color: #fff;
 }
 </style>

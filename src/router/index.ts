@@ -1,6 +1,5 @@
 import Vue from 'vue';
 import VueRouter, { RouteConfig } from 'vue-router';
-import { lazy } from 'vue-async-manager';
 
 Vue.use(VueRouter);
 
@@ -13,12 +12,12 @@ const routes: Array<RouteConfig> = [
   {
     path: '/home',
     name: 'Home',
-    component: lazy(() => import('../views/Home.vue')),
+    component: () => import('../views/Home.vue'),
   },
   {
     path: '/random',
     name: 'Random',
-    component: lazy(() => import('../views/Random.vue')),
+    component: () => import('../views/Random.vue'),
   },
   {
     path: '/categories',
@@ -27,12 +26,12 @@ const routes: Array<RouteConfig> = [
   {
     path: '/categories/:ingredient',
     name: 'Categories',
-    component: lazy(() => import('../views/Categories.vue')),
+    component: () => import('../views/Categories.vue'),
   },
   {
     path: '/detail/:id',
     name: 'Detail',
-    component: lazy(() => import('../views/Detail.vue')),
+    component: () => import('../views/Detail.vue'),
   },
 ];
 
