@@ -2,7 +2,9 @@
   <div class="recipe-content">
     <h3>{{ strMeal }}</h3>
     <div class="recipe-content__wrapper">
-      <img :src="strMealThumb" alt="food-sample" class="recipe-content__image" />
+      <img :src="strMealThumb"
+        alt="food-sample"
+        class="recipe-content__image"/>
       <div class="recipe-content__words">
         <h5>Area: <i>{{ strArea }}</i></h5>
         <h5>Categoty: <i>{{ strCategory }}</i></h5>

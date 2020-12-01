@@ -35,9 +35,11 @@ export default class Home extends Vue {
 
   public retrieveRecipes() {
     const service: RecipesDataService = new RecipesDataService();
+    this.$store.commit('startLoading');
     service.getAll().then((res: any) => {
       const recipesArray = res.meals.slice(0, 10);
       this.recipes = recipesArray;
+      this.$store.commit('loadingFinished');
     });
   }
 

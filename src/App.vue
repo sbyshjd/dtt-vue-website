@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <NavBar/>
+    <div v-show="$store.state.loading" id='loading-page'></div>
     <transition mode="out-in">
       <router-view :key="$route.fullPath" />
     </transition>
@@ -30,5 +31,9 @@ export default class App extends Vue {}
 }
 .v-enter-active,.v-leave-active {
   transition: all 0.2s ease;
+}
+#loading-page {
+  height: 100vh;
+  background-color: rgb(255, 255, 255);
 }
 </style>

@@ -23,11 +23,13 @@ export default class Random extends Vue {
     const service = new RecipesDataService();
     service.getRandom().then((res: any) => {
       const randomRecipe = res.meals[0];
+      this.$store.commit('loadingFinished');
       this.recipe = randomRecipe;
     });
   }
 
   created() {
+    this.$store.commit('startLoading');
     this.retrieveRecipe();
   }
 }
@@ -50,4 +52,5 @@ export default class Random extends Vue {
       background-color: #3655b3;
     }
   }
+
 </style>
