@@ -44,7 +44,7 @@ export default class Home extends Vue {
   }
 
   public sortByName(type: string) {
-    const sortedRecipes: any[] = [...this.recipes].sort((recipeA: any, recipeB: any): number => {
+    this.recipes.sort((recipeA: any, recipeB: any): number => {
       const nameA: string = recipeA.strMeal.toLowerCase();
       const nameB: string = recipeB.strMeal.toLowerCase();
       if (type === 'ascending') {
@@ -56,8 +56,6 @@ export default class Home extends Vue {
       if (nameA > nameB) return -1;
       return 0;
     });
-
-    this.recipes = sortedRecipes;
   }
 
   created() {

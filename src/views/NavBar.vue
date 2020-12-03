@@ -43,7 +43,7 @@
 
 <script lang="ts">
 import { BIcon, BIconCaretDownFill, BIconJustify } from 'bootstrap-vue';
-import { Component, Vue, Watch } from 'vue-property-decorator';
+import { Component, Vue } from 'vue-property-decorator';
 import 'vue-resize/dist/vue-resize.css';
 import { ResizeObserver } from 'vue-resize';
 
